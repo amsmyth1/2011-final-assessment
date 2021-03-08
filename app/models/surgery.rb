@@ -4,8 +4,5 @@ class Surgery < ApplicationRecord
 
   def average_years_experience
     doctors.average_years_experience
-  end
-
-  def self.all_by_average_years_experience
   end 
 end
