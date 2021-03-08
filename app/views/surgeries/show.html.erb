@@ -21,7 +21,7 @@
 
   <% @search_doc_results.each do |doc| %>
     <%= doc.name %>
-    <%= form_with model: @surgery_doctor, method: :post, local: true do |form| %>
+    <%= form_with model: @surgery_doctor, url: surgeries_path, method: :post, local: true do |form| %>
       <%= form.hidden_field :surgery_id, value: @surgery.id %>
       <%= form.hidden_field :doctor_id, value: doc.id %>
       <%= form.submit "Add #{doc.name}" %>
