@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+rails g migration CreateSurgeries title:string week_day:integer operating_room:integer
+rails g migration CreateDoctorSurgeries doctor:references surgery:references
