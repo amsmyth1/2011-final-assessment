@@ -1,0 +1,9 @@
+<h1>Doctors Index Page</h1>
+
+<% @doctors.each do |doc| %>
+<section id="doctor-<%= doc.id %>">
+  Name: <%= doc.name %><br>
+  Years Experience: <%= doc.experience %>
+  Education: <%= doc.university %>
+</section>
+<% end %>
