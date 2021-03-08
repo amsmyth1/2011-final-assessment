@@ -19,7 +19,7 @@ describe "user sees all surgery Information" do
     visit surgery_path(@surgery_1)
 
     expect(page).to have_content(@surgery_1.title)
-    expect(page).to have_content(@surgery_1.week_day)
+    expect(page).to have_content(@surgery_1.week_day.titleize)
     expect(page).to have_content(@surgery_1.operating_room)
   end
   it "displays all doctors working on the surgery info" do
@@ -65,11 +65,13 @@ describe "user sees all surgery Information" do
   describe "add a doctor to a surgery" do
     it "has a field to add a doctor by name to this surgery" do
       visit surgery_path(@surgery_1)
+      save_and_open_page
       expect(page).to have_content("Add Doctor")
       expect(page).to have_button("Add Doctor")
 
       fill_in "Doctor", with: "ristina"
       click_on "Search"
+      save_and_open_page
       click_on "Add Christina"
 
       expect(current_path).to eq(surgery_path(@surgery_1))
