@@ -32,6 +32,12 @@ describe Doctor, type: :model do
          expect(Doctor.least_experience).to eq(@alex)
        end
      end
+     describe "search_results(query)" do
+       it "returns the doctors that match the search by partial name" do
+
+         expect(Doctor.search_results("re")).to eq([@mer, @alex, @mcdreamy])
+       end
+     end
    end
  end
 end
