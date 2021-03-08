@@ -7,6 +7,7 @@ RSpec.describe "surgery show page", type: :feature do
      @bailey = Doctor.create!({name: "Miranda Bailey", experience: 20, university: "Stanford University"})
      @mcdreamy = Doctor.create!({name: "Derek McDreamy Shepherd", experience: 15, university: "University of Pennsylvania"})
      @surgery_1 = Surgery.create!({title: "Kidney Replacement", week_day: "tuesday", operating_room: 104})
+     @christina = Doctor.create!({name: "Christina Yang", experience: 9, university: "Stanford University"})
 
      @mer.surgeries << @surgery_1
      @alex.surgeries << @surgery_1
@@ -58,6 +59,23 @@ describe "user sees all surgery Information" do
           expect(page).to have_content(@alex.name)
           expect(page).to have_content(@alex.experience)
         end
+      end
+    end
+  end
+  describe "add a doctor to a surgery" do
+    it "has a field to add a doctor by name to this surgery" do
+      visit surgery_path(@surgery_1)
+      expect(page).to have_content("Add Doctor")
+      expect(page).to have_button("Add Doctor")
+
+      fill_in "Doctor", with: "ristina"
+      click_on "Submit"
+      click_on "Add Christina"
+
+      expect(current_path).to eq(surgery_path(@surgery_1))
+      within "#least_experience" do
+        expect(page).to have_content(@christina.name)
+        expect(page).to have_content(@christina.experience)
       end
     end
   end
