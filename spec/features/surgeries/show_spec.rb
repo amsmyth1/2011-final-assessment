@@ -65,13 +65,12 @@ describe "user sees all surgery Information" do
   describe "add a doctor to a surgery" do
     it "has a field to add a doctor by name to this surgery" do
       visit surgery_path(@surgery_1)
-      save_and_open_page
-      expect(page).to have_content("Add Doctor")
-      expect(page).to have_button("Add Doctor")
 
-      fill_in "Doctor", with: "ristina"
+      expect(page).to have_content("Add a Doctor")
+      expect(page).to have_button("Search")
+
+      fill_in :query, with: "ristina"
       click_on "Search"
-      save_and_open_page
       click_on "Add Christina"
 
       expect(current_path).to eq(surgery_path(@surgery_1))
