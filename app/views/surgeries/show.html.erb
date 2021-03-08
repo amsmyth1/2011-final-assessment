@@ -11,6 +11,23 @@
     <% end %>
 </section>
 
+<section id="add_doc">
+  <%= form_with model: @doctor, method: :get, local: true do |form| %>
+    <%= form.label :query, "Search for doctors by name" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+
+  <% @search_doc_results.each do |doc| %>
+    <%= doc.name %>
+    <%= form_with model: @surgery_doctor, method: :post, local: true do |form| %>
+      <%= form.hidden_field :surgery_id, value: @surgery.id %>
+      <%= form.hidden_field :doctor_id, value: doc.id %>
+      <%= form.submit "Add #{doc.name}" %>
+    <% end %>
+  <% end %>
+</section>
+
 <section id="most_experience">
   <h3>Most Experienced Doctor</h3>
   <%= @most_experience_doctor_on_surgery.name %>

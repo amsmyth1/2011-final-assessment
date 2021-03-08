@@ -69,7 +69,7 @@ describe "user sees all surgery Information" do
       expect(page).to have_button("Add Doctor")
 
       fill_in "Doctor", with: "ristina"
-      click_on "Submit"
+      click_on "Search"
       click_on "Add Christina"
 
       expect(current_path).to eq(surgery_path(@surgery_1))
