@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_161101) do
 
   create_table "surgeries", force: :cascade do |t|
     t.string "title"
-    t.integer "week_day"
+    t.string "week_day"
     t.integer "operating_room"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
