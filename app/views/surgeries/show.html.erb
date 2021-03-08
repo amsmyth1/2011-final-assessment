@@ -1,6 +1,7 @@
 <h1> Surgery Information</h1>
 
 <section class="surgery_information">
+  <h3><%= @surgery.title.titleize %> | <%= @surgery.week_day.titleize %> | Room: <%= @surgery.operating_room %></h3>
   <% @surgery_doctors.each do |doc| %>
     <section id="doctor-<%= doc.id %>">
       Name: <%= doc.name %><br>

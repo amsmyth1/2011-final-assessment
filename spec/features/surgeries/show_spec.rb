@@ -14,6 +14,13 @@ RSpec.describe "surgery show page", type: :feature do
    end
 
 describe "user sees all surgery Information" do
+  it "displays the surgery title, day of the week, and operating room" do
+    visit surgery_path(@surgery_1)
+
+    expect(page).to have_content(@surgery_1.title)
+    expect(page).to have_content(@surgery_1.week_day)
+    expect(page).to have_content(@surgery_1.operating_room)
+  end
   it "displays all doctors working on the surgery info" do
       visit surgery_path(@surgery_1)
 
