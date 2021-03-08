@@ -3,9 +3,9 @@
 <section class="surgery_information">
   <% @surgery_doctors.each do |doc| %>
     <section id="doctor-<%= doc.id %>">
-      Name: <%= doc.name %>
-      Years Practicing: <%= doc.experience %>
-      Education: <%= doc.university %>
+      Name: <%= doc.name %><br>
+      Years Practicing: <%= doc.experience %> |
+      Education: <%= doc.university %><br>
     </section>
     <% end %>
 </section>
