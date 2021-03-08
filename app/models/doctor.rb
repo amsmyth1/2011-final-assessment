@@ -17,4 +17,8 @@ class Doctor < ApplicationRecord
   def self.search_results(query)
     Doctor.where("lower(name) LIKE ?", "%#{query.downcase}%")
   end
+
+  def self.average_years_experience
+    average(:experience).round(1)
+  end
 end

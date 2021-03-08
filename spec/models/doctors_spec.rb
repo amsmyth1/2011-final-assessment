@@ -38,6 +38,13 @@ describe Doctor, type: :model do
          expect(Doctor.search_results("re")).to eq([@mer, @alex, @mcdreamy])
        end
      end
+     describe "average_years_experience" do
+       it "returns the average_years_experience of a group of doctor records" do
+         answer = (13.8)
+
+         expect(Doctor.average_years_experience).to eq(answer)
+       end
+     end
    end
  end
 end

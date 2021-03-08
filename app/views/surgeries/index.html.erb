@@ -1,9 +1,11 @@
 <h1>All Surgeries</h1>
 
-
+<section>
 <% @surgeries.each do |surgery| %>
-  <section id="surgery-#{surgery.id}">
+  <section class="surgery-#{surgery.id}">
     <%= link_to surgery.title, surgery_path(surgery) %> |
-    <%= surgery.week_day.titleize %> | Room: <%= surgery.operating_room %><br>
+    <%= surgery.week_day.titleize %> | Room: <%= surgery.operating_room %>
+    | Average Years Experience of Assigned Doctors: <%= surgery.average_years_experience %><br>
   </section>
 <% end %>
+</section>
