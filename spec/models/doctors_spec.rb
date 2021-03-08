@@ -20,6 +20,18 @@ describe Doctor, type: :model do
 
          expect(Doctor.all_by_experience.pluck(:name)).to eq(answer)
        end
+     describe "most_experience" do
+       it "returns the doctor with the most experience" do
+
+         expect(Doctor.most_experience).to eq(@bailey)
+       end
+     end
+     describe "least_experience" do
+       it "returns the doctor with the most experience" do
+
+         expect(Doctor.least_experience).to eq(@alex)
+       end
      end
    end
+ end
 end

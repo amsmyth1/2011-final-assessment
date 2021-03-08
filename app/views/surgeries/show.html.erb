@@ -1,0 +1,23 @@
+<h1> Surgery Information</h1>
+
+<section class="surgery_information">
+  <% @surgery_doctors.each do |doc| %>
+    <section id="doctor-<%= doc.id %>">
+      Name: <%= doc.name %>
+      Years Practicing: <%= doc.experience %>
+      Education: <%= doc.university %>
+    </section>
+    <% end %>
+</section>
+
+<section id="most_experience">
+  <h3>Most Experienced Doctor</h3>
+  <%= @most_experience_doctor_on_surgery.name %>
+  <%= @most_experience_doctor_on_surgery.experience %>
+</section>
+
+<section id="least_experience">
+  <h3>Least Experienced Doctor</h3>
+  <%= @least_experience_doctor_on_surgery.name %>
+  <%= @least_experience_doctor_on_surgery.experience %>
+</section>

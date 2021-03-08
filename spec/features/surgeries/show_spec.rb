@@ -17,20 +17,22 @@ describe "user sees all surgery Information" do
   it "displays all doctors working on the surgery info" do
       visit surgery_path(@surgery_1)
 
-      within "#doctor-#{@mer.id}" do
-        expect(page).to have_content(@mer.name)
-        expect(page).to have_content(@mer.experience)
-        expect(page).to have_content(@mer.university)
-      end
-      within "#doctor-#{@alex.id}" do
-        expect(page).to have_content(@alex.name)
-        expect(page).to have_content(@alex.experience)
-        expect(page).to have_content(@alex.university)
-      end
-      within "#doctor-#{@bailey.id}" do
-        expect(page).to have_content(@bailey.name)
-        expect(page).to have_content(@bailey.experience)
-        expect(page).to have_content(@bailey.university)
+      within ".surgery_information" do
+        within "#doctor-#{@mer.id}" do
+          expect(page).to have_content(@mer.name)
+          expect(page).to have_content(@mer.experience)
+          expect(page).to have_content(@mer.university)
+        end
+        within "#doctor-#{@alex.id}" do
+          expect(page).to have_content(@alex.name)
+          expect(page).to have_content(@alex.experience)
+          expect(page).to have_content(@alex.university)
+        end
+        within "#doctor-#{@bailey.id}" do
+          expect(page).to have_content(@bailey.name)
+          expect(page).to have_content(@bailey.experience)
+          expect(page).to have_content(@bailey.university)
+        end
       end
     end
   describe "displays 2 sections" do
@@ -38,16 +40,16 @@ describe "user sees all surgery Information" do
         visit surgery_path(@surgery_1)
 
         within "#most_experience" do
-          expect(page).to have_contet(@bailey.name)
-          expect(page).to have_contet(@bailey.experience)
+          expect(page).to have_content(@bailey.name)
+          expect(page).to have_content(@bailey.experience)
         end
     end
     it "displays 'Least Experienced Doctor'" do
         visit surgery_path(@surgery_1)
 
         within "#least_experience" do
-          expect(page).to have_contet(@alex.name)
-          expect(page).to have_contet(@alex.experience)
+          expect(page).to have_content(@alex.name)
+          expect(page).to have_content(@alex.experience)
         end
       end
     end
